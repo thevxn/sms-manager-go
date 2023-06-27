@@ -1,8 +1,7 @@
 package client
 
 import (
-	"sms-manager-go/pkg/config"
-	// "go.savla.dev/sms-manager/pkg/config"
+	"go.savla.dev/sms-manager/pkg/config"
 )
 
 func DoRequest(req config.Request, method string, response *Response) error {

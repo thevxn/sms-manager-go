@@ -4,10 +4,8 @@ import (
 	"fmt"
 	"log"
 
-	"sms-manager-go/pkg/client"
-	"sms-manager-go/pkg/config"
-	//client "go.savla.dev/sms-manager/pkg/client"
-	//config "go.savla.dev/sms-manager/pkg/config"
+	client "go.savla.dev/sms-manager/pkg/client"
+	config "go.savla.dev/sms-manager/pkg/config"
 )
 
 func main() {

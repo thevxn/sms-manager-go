@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"sms-manager-go/pkg/config"
+	"go.savla.dev/sms-manager/pkg/config"
 )
 
 // composeURL is a helper function that parses params into a full url.URL type.
