@@ -4,7 +4,7 @@ type Response struct {
 	// Message is human-readable response code. Equals "OK" or "ERROR".
 	Message string
 
-	// RequestID code can be used as referrence to just sent SMS.
+	// RequestID code can be used as reference to just sent SMS.
 	RequestID int
 
 	// RequestIDArray is an array of RequestID for RequestList method response parsing.
@@ -13,7 +13,7 @@ type Response struct {
 	// PhoneNumber is a number for SMS delivery.
 	PhoneNumber string
 
-	// CustomID is a custom code set by client for SMS process referrence.
+	// CustomID is a custom code set by client for SMS process reference.
 	CustomID int
 
 	// GatewayType is the name of used SMS gateway tariff.
@@ -35,7 +35,7 @@ type Response struct {
 	SenderArray []string
 
 	// RemainCountArray is an array of integers for RequestList method response parsing.
-	// It tells the number of remaining recepients waiting to be served.
+	// It tells the number of remaining recipients waiting to be served.
 	RemainCountArray []int
 
 	// DeliveryCount is a total sum of delivery acknowledgement (ACK) messages sent.
@@ -50,7 +50,7 @@ type Response struct {
 	// TextSplitSMSCount is a total count of SMS messages theoretically sent from givem request (mainly driven by Message request param).
 	TextSplitSMSCount int
 
-	// CharacterCount indicates the sum of requested Message text lenght.
+	// CharacterCount indicates the sum of requested Message text length.
 	CharacterCount int
 
 	// OneSMSPrice is a price for one SMS theoretically sent from given input (mainly Message and PhoneNumber request params).
