@@ -6,6 +6,14 @@ Simple Go implementation of [SMS Manager HTTP API](https://smsmanager.cz/api/htt
 
 See [example](/example) folder to see possible client usage.
 
+### in code
 ```
-import "go.savla.dev/sms-manager@latest"
+package main
+
+import (
+	"go.savla.dev/sms-manager/pkg/config"
+	"go.savla.dev/sms-manager/pkg/client"
+)
+
+[...]
 ```
