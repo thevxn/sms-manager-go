@@ -16,8 +16,8 @@ func main() {
 		Message:     "hello world!",
 		GatewayType: "high",
 		// optional params
-		CustomID:  "123456",
-		Sender:    "info-sms",
+		CustomID: "123456",
+		Sender:   "info-sms",
 		//SendTime:       "2023-06-26T20:45:00",
 		//ExpirationTime: "2023-06-26T20:55:00",
 	}
