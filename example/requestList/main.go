@@ -5,11 +5,10 @@ import (
 	"log"
 
 	client "go.savla.dev/sms-manager/pkg/client"
-	config "go.savla.dev/sms-manager/pkg/config"
 )
 
 func main() {
-	req := config.Request{
+	req := client.Request{
 		// compulsory params
 		APIKey:      "xyz",
 		PhoneNumber: "420123456789",

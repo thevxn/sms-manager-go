@@ -14,7 +14,6 @@ See [example](/example) folder to see possible client usage.
 package main
 
 import (
-	"go.savla.dev/sms-manager/pkg/config"
 	"go.savla.dev/sms-manager/pkg/client"
 )
 

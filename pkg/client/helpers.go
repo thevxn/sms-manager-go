@@ -6,17 +6,15 @@ import (
 	"log"
 	"net/http"
 	"net/url"
-
-	"go.savla.dev/sms-manager/pkg/config"
 )
 
 // composeURL is a helper function that parses params into a full url.URL type.
-func composeURL(req config.Request, method string) (*url.URL, error) {
+func composeURL(req Request, method string) (*url.URL, error) {
 	if method == "" {
 		return nil, errors.New("method string is empty")
 	}
 
-	baseURL, err := url.Parse(config.Endpoint + method)
+	baseURL, err := url.Parse(Endpoint + method)
 	if err != nil {
 		return nil, err
 	}

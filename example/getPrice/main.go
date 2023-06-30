@@ -5,11 +5,10 @@ import (
 	"log"
 
 	client "go.savla.dev/sms-manager/pkg/client"
-	config "go.savla.dev/sms-manager/pkg/config"
 )
 
 func main() {
-	req := config.Request{
+	req := client.Request{
 		// compulsory params
 		APIKey:      "xyz",
 		PhoneNumber: "420123456789",
@@ -23,7 +22,6 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// print GetUserInfo response fields
 	if resp.Message != "ERROR" {
 		fmt.Printf("valid receivers count    : %d\n\r", resp.ValidReceiverCount)
 		fmt.Printf("number of SMS msgs       : %d\n\r", resp.TextSplitSMSCount)

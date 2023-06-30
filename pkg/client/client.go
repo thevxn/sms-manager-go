@@ -1,10 +1,7 @@
 package client
 
-import (
-	"go.savla.dev/sms-manager/pkg/config"
-)
-
-func DoRequest(req config.Request, method string, response *Response) error {
+// DoRequest 
+func DoRequest(req Request, method string, response *Response) error {
 	baseURL, err := composeURL(req, method)
 	if err != nil {
 		return err

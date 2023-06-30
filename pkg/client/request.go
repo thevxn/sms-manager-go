@@ -1,4 +1,4 @@
-package config
+package client
 
 // https://smsmanager.cz/api/http
 type Request struct {
