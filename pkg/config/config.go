@@ -15,6 +15,8 @@ var (
 	CustomID string
 	SendTime string
 	ExpirationTime string
+
+	PushGatewayURL string
 )
 
 func init() {
@@ -22,12 +24,14 @@ func init() {
 	apiKey := flag.String("apiKey", "", "a string, API key issued by SMS Manager portal")
 	phoneNumber := flag.String("phoneNumber", "", "a string, a phone number to send the SMS to")
 	gatewayType := flag.String("gatewayType", "high", "a string, the specification of gateway service/tariff used")
-	
+
 	requestID := flag.String("requestID", "", "a string, an identificator returned by the service on sent SMS")
 	sender := flag.String("sender", "info-sms", "a string, the SMS sender identificator")
 	customID := flag.String("customID", "", "a string, a custom identificator for such SMS being sent")
 	sendTime := flag.String("sendTime", "", "a string, an optional specificaton of the SMS sending time; format: 2023-12-32T23:59:59")
 	expirationTime := flag.String("expirationTime", "", "a string, an optional specificaton of the SMS expiration time; format, the SMS won't be sent after that datetime specified: 2023-12-32T23:59:59")
+
+	pushGatewayURL := flag.String("pushGatewayURL", "", "a string, an optional URL target for fetched values reporting as metrics")
 
 	flag.Parse()
 
@@ -43,6 +47,9 @@ func init() {
 	CustomID = *customID
 	SendTime = *sendTime
 	ExpirationTime = *expirationTime
+
+	// very optional vars
+	PushGatewayURL = *pushGatewayURL
 }
 
 

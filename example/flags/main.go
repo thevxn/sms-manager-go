@@ -1,8 +1,11 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"log"
+	"net/http"
+	"strconv"
 
 	client "go.savla.dev/sms-manager/pkg/client"
 	config "go.savla.dev/sms-manager/pkg/config"
@@ -39,4 +42,26 @@ func main() {
 		fmt.Printf("response error code: %d\n\r", resp.ErrorCode)
 		fmt.Println("response error msq : " + resp.ErrorMessage)
 	}
+
+	// compose a request body
+	balance := strconv.FormatFloat(resp.CreditBalance, 'f', 0, 64)
+	bodyReader := bytes.NewReader([]byte(balance))
+
+	// report the balance to PushGateway
+	request, err := http.NewRequest("PUT", config.PushGatewayURL, bodyReader)
+	if err != nil {
+		log.Fatal(err)
+	}
+	request.Header.Set("Content-Type", "application/plain")
+
+	client := http.Client{}
+
+	res, err := client.Do(request)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	log.Println("Results pushed to pushgateway")
+	defer res.Body.Close()
 }
+
