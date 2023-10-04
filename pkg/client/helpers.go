@@ -44,7 +44,9 @@ func composeURL(req Request, method string) (*url.URL, error) {
 		params.Add("expiration", req.ExpirationTime)
 	}
 
-	log.Println("method: " + method)
+	if req.Verbose {
+		log.Println("method: " + method)
+	}
 
 	// run the encoding process
 	baseURL.RawQuery = params.Encode()
@@ -60,7 +62,7 @@ func getResponseBody(urlString string) ([]byte, error) {
 	}
 	defer resp.Body.Close()
 
-	log.Println("status: " + resp.Status)
+	//log.Println("status: " + resp.Status)
 
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {

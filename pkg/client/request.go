@@ -28,6 +28,9 @@ type Request struct {
 
 	// ExpirationTime is the optional specification of the message expiration time --- SMS won't be sent after this time; format 2023-12-31T23:59:59.
 	ExpirationTime string `param:"expiration"`
+
+	// Verbose bool indicates the client output verbosity.
+	Verbose bool `default:false`
 }
 
 var (

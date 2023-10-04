@@ -21,7 +21,7 @@ func init() {
 	methodName := flag.String("method", "", "a string, the client method name")
 	apiKey := flag.String("apiKey", "", "a string, API key issued by SMS Manager portal")
 	phoneNumber := flag.String("phoneNumber", "", "a string, a phone number to send the SMS to")
-	gatewayType := flag.String("high", "a string, the specification of gateway service/tariff used")
+	gatewayType := flag.String("gatewayType", "high", "a string, the specification of gateway service/tariff used")
 	
 	requestID := flag.String("requestID", "", "a string, an identificator returned by the service on sent SMS")
 	sender := flag.String("sender", "info-sms", "a string, the SMS sender identificator")
