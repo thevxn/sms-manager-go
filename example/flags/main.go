@@ -44,15 +44,18 @@ func main() {
 	}
 
 	// compose a request body
-	balance := strconv.FormatFloat(resp.CreditBalance, 'f', 0, 64)
-	bodyReader := bytes.NewReader([]byte(balance))
+	body := fmt.Sprintln("#HELP SMS Manager available credit balance")
+	body += fmt.Sprintln("#TYPE credit_balance_czk_total gauge")
+	body += fmt.Sprintln("credit balance_czk_total", strconv.FormatFloat(resp.CreditBalance, 'f', 0, 64))
+
+	bodyReader := bytes.NewReader([]byte(body))
 
 	// report the balance to PushGateway
 	request, err := http.NewRequest("PUT", config.PushGatewayURL, bodyReader)
 	if err != nil {
 		log.Fatal(err)
 	}
-	request.Header.Set("Content-Type", "application/plain")
+	request.Header.Set("Content-Type", "application/octet-stream")
 
 	client := http.Client{}
 
