@@ -8,8 +8,8 @@ import (
 	"os"
 	"strconv"
 
-	client "go.savla.dev/sms-manager/pkg/client"
-	config "go.savla.dev/sms-manager/pkg/config"
+	client "go.vxn.dev/sms-manager/pkg/client"
+	config "go.vxn.dev/sms-manager/pkg/config"
 )
 
 func main() {

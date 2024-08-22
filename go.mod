@@ -1,3 +1,4 @@
-module go.savla.dev/sms-manager
+module go.vxn.dev/sms-manager
 
 go 1.20
+

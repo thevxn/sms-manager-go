@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	client "go.savla.dev/sms-manager/pkg/client"
+	client "go.vxn.dev/sms-manager/pkg/client"
 )
 
 func main() {
