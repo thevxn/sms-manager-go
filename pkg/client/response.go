@@ -5,10 +5,10 @@ type Response struct {
 	Message string
 
 	// RequestID code can be used as reference to just sent SMS.
-	RequestID int
+	RequestID string
 
 	// RequestIDArray is an array of RequestID for RequestList method response parsing.
-	RequestIDArray []int
+	RequestIDArray []string
 
 	// PhoneNumber is a number for SMS delivery.
 	PhoneNumber string

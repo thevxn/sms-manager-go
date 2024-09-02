@@ -28,9 +28,6 @@ func composeURL(req Request, method string) (*url.URL, error) {
 	params.Add("gateway", req.GatewayType)
 
 	// optional params
-	if req.RequestID != "" {
-		params.Add("requestID", req.RequestID)
-	}
 	if req.Sender != "" {
 		params.Add("sender", req.Sender)
 	}
