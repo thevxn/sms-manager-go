@@ -35,10 +35,8 @@ func parseSend(parts []string, response *Response) error {
 
 	response.Message = parts[0]
 
-	requestID, err := strconv.Atoi(parts[1])
-	if err != nil {
-		return err
-	}
+	requestID := parts[1]
+
 	response.RequestID = requestID
 
 	response.PhoneNumber = parts[2]
@@ -74,10 +72,8 @@ func parseRequestList(parts []string, response *Response) error {
 			continue
 		}
 
-		requestID, err := strconv.Atoi(newParts[0])
-		if err != nil {
-			return err
-		}
+		requestID := newParts[0]
+
 		response.RequestIDArray = append(response.RequestIDArray, requestID)
 
 		response.GatewayTypeArray = append(response.GatewayTypeArray, newParts[1])
@@ -217,27 +213,22 @@ func parseResponse(response string, method string, parsedResponse *Response) err
 		if err := parseSend(parts, parsedResponse); err != nil {
 			return err
 		}
-		break
 	case "RequestList":
 		if err := parseRequestList(parts, parsedResponse); err != nil {
 			return err
 		}
-		break
 	case "RequestStatus":
 		if err := parseRequestStatus(parts, parsedResponse); err != nil {
 			return err
 		}
-		break
 	case "GetUserInfo":
 		if err := parseGetUserInfo(parts, parsedResponse); err != nil {
 			return err
 		}
-		break
 	case "GetPrice":
 		if err := parseGetPrice(parts, parsedResponse); err != nil {
 			return err
 		}
-		break
 	}
 	return nil
 }
