@@ -213,27 +213,22 @@ func parseResponse(response string, method string, parsedResponse *Response) err
 		if err := parseSend(parts, parsedResponse); err != nil {
 			return err
 		}
-		break
 	case "RequestList":
 		if err := parseRequestList(parts, parsedResponse); err != nil {
 			return err
 		}
-		break
 	case "RequestStatus":
 		if err := parseRequestStatus(parts, parsedResponse); err != nil {
 			return err
 		}
-		break
 	case "GetUserInfo":
 		if err := parseGetUserInfo(parts, parsedResponse); err != nil {
 			return err
 		}
-		break
 	case "GetPrice":
 		if err := parseGetPrice(parts, parsedResponse); err != nil {
 			return err
 		}
-		break
 	}
 	return nil
 }
