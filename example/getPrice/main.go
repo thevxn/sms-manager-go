@@ -30,6 +30,6 @@ func main() {
 		fmt.Printf("price per all SMS msgs   : %.2f CZK\n\r", resp.SumSMSPrice)
 	} else {
 		fmt.Printf("response error code: %d\n\r", resp.ErrorCode)
-		fmt.Println("response error msq : " + resp.ErrorMessage)
+		fmt.Println("response error msg: " + resp.ErrorMessage)
 	}
 }

@@ -20,5 +20,5 @@ gateway type: high
 2023/06/27 09:39:52 method: GetPrice
 2023/06/27 09:39:52 status: 401 Unauthorized
 response error code: 103
-response error msq : The username or password you entered is incorrect
+response error msg: The username or password you entered is incorrect
 ```

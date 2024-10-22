@@ -37,6 +37,6 @@ func main() {
 		}
 	} else {
 		fmt.Printf("response error code: %d\n\r", resp.ErrorCode)
-		fmt.Println("response error msq : " + resp.ErrorMessage)
+		fmt.Println("response error msg: " + resp.ErrorMessage)
 	}
 }
