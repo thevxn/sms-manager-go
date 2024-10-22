@@ -72,7 +72,7 @@ func parseRequestList(parts []string, response *Response) error {
 			continue
 		}
 
-		requestID:= newParts[0]
+		requestID := newParts[0]
 
 		response.RequestIDArray = append(response.RequestIDArray, requestID)
 
