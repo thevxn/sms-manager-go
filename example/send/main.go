@@ -29,7 +29,7 @@ func main() {
 
 	if resp.Message != "ERROR" {
 		fmt.Println("status         : " + resp.Message)
-		fmt.Printf("request ID     : %d\n\r", resp.RequestID)
+		fmt.Printf("request ID     : %s\n\r", resp.RequestID)
 		fmt.Println("phone number(s): " + resp.PhoneNumber)
 		fmt.Printf("custom ID      : %d\n\r", resp.CustomID)
 	} else {

@@ -27,7 +27,7 @@ func main() {
 		count := len(resp.RequestIDArray)
 
 		for i := 0; i < count; i++ {
-			fmt.Printf("request ID                 : %d\n\r", resp.RequestIDArray[i])
+			fmt.Printf("request ID                 : %s\n\r", resp.RequestIDArray[i])
 			fmt.Println("gateway type               : " + resp.GatewayTypeArray[i])
 			fmt.Println("SMS sending time           : " + resp.TimeSentArray[i])
 			fmt.Println("SMS send exp. time         : " + resp.TimeExpiryArray[i])

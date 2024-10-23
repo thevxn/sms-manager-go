@@ -15,7 +15,7 @@ type Request struct {
 	GatewayType string `param:"gateway" default:"high"`
 
 	// RequestID is to be parsed from sent SMS request string returned.
-	RequestID string `param:"requestID" default:0`
+	RequestID string `param:"requestID"`
 
 	// Sender is the optional specification of a sender, telephone number or authorized text.
 	Sender string `param:"sender"`
@@ -30,7 +30,7 @@ type Request struct {
 	ExpirationTime string `param:"expiration"`
 
 	// Verbose bool indicates the client output verbosity.
-	Verbose bool `default:false`
+	Verbose bool
 }
 
 var (
