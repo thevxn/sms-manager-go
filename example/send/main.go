@@ -1,39 +1,46 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"log"
+	"time"
 
 	client "go.vxn.dev/sms-manager/pkg/client"
 )
 
 func main() {
-	req := client.Request{
-		// compulsory params
-		APIKey:      "xyz",
-		PhoneNumber: "420123456789",
-		Message:     "hello world!",
-		GatewayType: "high",
-		// optional params
-		CustomID: "123456",
-		Sender:   "info-sms",
-		//SendTime:       "2023-06-26T20:45:00",
-		//ExpirationTime: "2023-06-26T20:55:00",
-	}
-
-	resp := &client.Response{}
-
-	if err := client.DoRequest(req, "Send", resp); err != nil {
+	c, err := client.New("xyz")
+	if err != nil {
 		log.Fatal(err)
 	}
 
-	if resp.Message != "ERROR" {
-		fmt.Println("status         : " + resp.Message)
-		fmt.Printf("request ID     : %s\n\r", resp.RequestID)
-		fmt.Println("phone number(s): " + resp.PhoneNumber)
-		fmt.Printf("custom ID      : %d\n\r", resp.CustomID)
-	} else {
-		fmt.Printf("response error code: %d\n\r", resp.ErrorCode)
-		fmt.Println("response error msg: " + resp.ErrorMessage)
+	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	defer cancel()
+
+	resp, err := c.Send(ctx, client.Message{
+		Body:   "hello world!",
+		To:     client.Recipients("420123456789"),
+		Sender: "SmsManager",
+		Tag:    client.TagTransactional,
+
+		// optional metadata returned back in delivery notifications
+		Payload: map[string]interface{}{"customID": "123456"},
+
+		// optional scheduling
+		//DateTime: client.NewTime(time.Now().Add(time.Hour)),
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println("request ID: " + resp.RequestID)
+
+	for _, accepted := range resp.Accepted {
+		fmt.Printf("accepted recipient %s: message ID %s\n\r", accepted.Key, accepted.MessageID)
+	}
+
+	for _, rejected := range resp.Rejected {
+		fmt.Printf("rejected recipient %s\n\r", rejected.Key)
 	}
 }
